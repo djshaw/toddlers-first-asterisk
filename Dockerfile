@@ -47,13 +47,21 @@ RUN --mount=target=/var/lib/apt/lists,type=cache,sharing=locked \
     cd -
 
 
-#FROM ubuntu AS sox
+FROM ubuntu AS wavs
 
-#RUN --mount=target=/var/lib/apt/lists,type=cache,sharing=locked \
-#    --mount=target=/var/cache/apt,type=cache,sharing=locked \
-#    apt update && apt install sox
+ARG DEBIAN_FRONTEND=noninteractive
+RUN --mount=target=/var/lib/apt/lists,type=cache,sharing=locked \
+    --mount=target=/var/cache/apt,type=cache,sharing=locked \
+    apt update && \
+    apt install --assume-yes lame && \
+    mkdir /sounds
 
-# TODO: convert mp3s to wavs
+COPY sounds/* /sounds
+RUN for FILE in $( find /sounds -name "*.mp3" ) ; do \
+        if [ ! -f ${FILE%.*}.wav ] ; then \
+            lame --decode $FILE ${FILE%.*}.wav ; \
+        fi ; \
+    done
 
 
 FROM ubuntu AS asterisk
@@ -78,5 +86,6 @@ COPY --from=build /usr/lib/x86_64-linux-gnu/*xml* \
                   /usr/lib/x86_64-linux-gnu/*md* \
                   /usr/lib/x86_64-linux-gnu/*bsd* \
                   /usr/lib/x86_64-linux-gnu
+COPY --from=wavs /sounds/*.wav /var/lib/asterisk/sounds/
 COPY etc/asterisk/* /etc/asterisk/
-# TODO: copy my configuration in
+
