@@ -78,4 +78,5 @@ COPY --from=build /usr/lib/x86_64-linux-gnu/*xml* \
                   /usr/lib/x86_64-linux-gnu/*md* \
                   /usr/lib/x86_64-linux-gnu/*bsd* \
                   /usr/lib/x86_64-linux-gnu
+COPY etc/asterisk/* /etc/asterisk/
 # TODO: copy my configuration in
