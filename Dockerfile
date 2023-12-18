@@ -18,5 +18,5 @@ RUN for FILE in $( find /sounds -name "*.mp3" ) ; do \
 FROM mlan/asterisk:latest
 
 COPY etc/asterisk/* /etc/asterisk
-COPY --from=wavs /sounds /var/lib/asterisk/sound
+COPY --from=wavs /sounds/*.wav /var/lib/asterisk/sounds/en/
 
