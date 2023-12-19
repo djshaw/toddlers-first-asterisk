@@ -1,15 +1,13 @@
 # toddlers-first-asterisk
 A simple asterisk configuration with a single digit dialplans for a toddler to learn how to use an analogue phone
 
-# Quickstart
-
 Build with:
 ```
-docker build . --tag toddlers-first-asterisk
+$ sudo build.sh
 ```
 
-Run with:
-```
-docker run --publish 5060:5060 toddlers-first-asterisk
-```
+The build script starts asterisk.
+
+I was unable to get Asterisk to work in a docker container, but it is straight
+forward to get it running in an lxd container.
 
