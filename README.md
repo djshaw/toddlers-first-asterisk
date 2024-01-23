@@ -23,6 +23,7 @@ To configure a Linksys PAP2 to connect to Asterisk:
 |                    | User ID   | 6001               | `/etc/asterisk/pjsip.conf`: Group name and `6001.username=6001 |
 |                    | Password  | `unsecurepassword` | `/etc/asterisk/pjsip.conf`: `6001.password=unsecurepassword` |
 |                    | Dial Plan | `x`                | Implicitly required based on the content of `/etc/asterisk/extensions.conf` |
+|                    | Dial Plan | `P0<:1>`           | Auto dials the extension `1` |
 
 
 # Debugging Asterisk

@@ -29,6 +29,7 @@ if [[ ! $( asterisk -V ) =~ ${ASTERISK_VERSION}$ ]] ; then
                 libsqlite3-dev \
                 libssl-dev \
                 libxml2-dev  \
+                sox \
                 subversion \
                 tzdata \
                 uuid-dev \
@@ -97,7 +98,14 @@ fi
 
 # I don't want to host the mp3 files because I don't know I'm allowed to host
 # them. Get the source files from a place that only I can access.
-scp -B cerf@git.djshaw.ca:sounds/* sounds || true
+mkdir -p sounds/raw
+scp -B cerf@git.djshaw.ca:sounds/* sounds/raw || true
+
+for FILE in $( ls sounds/*.wav ) ; do
+    FILE_BASENAME=$( basename $FILE )
+    FILE_BASENAME=${FILE_BASENAME%-}
+    sox $FILE --channels 1 --bits 16 --rate 8000 $FILE_BASENAME
+done
 
 # TODO: convert the files to 16bit endian, 8000khz
 # sox chase-s01e02a.wav.old -b 16 -c 1 -r 8000 chase
