@@ -38,7 +38,7 @@ waiting for input.  If the input is unexpected, then go back to the waiting for
 input state.
 
 <p align="center">
-    ![dialplan](doc/dialplan.svg)
+![dialplan](doc/dialplan.svg)
 </p>
 
 
