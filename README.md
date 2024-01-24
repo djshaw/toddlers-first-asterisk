@@ -49,7 +49,7 @@ To configure a Linksys PAP2 to connect to Asterisk:
 | Configuration Page | Key       | Value              | Source of value in Asterisk |
 | -                  | -         | -                  | -                           |
 | Line 1             | SIP Port  | 5060               | (Default value)             |
-|                    | User ID   | 6001               | `/etc/asterisk/pjsip.conf`: Group name and `6001.username=6001 |
+|                    | User ID   | 6001               | `/etc/asterisk/pjsip.conf`: Group name and `6001.username=6001` |
 |                    | Password  | `unsecurepassword` | `/etc/asterisk/pjsip.conf`: `6001.password=unsecurepassword` |
 |                    | Proxy     | `asterisk`         | The hostname of the machine running asterisk |
 |                    | Dial Plan | `P0<:1>`           | Auto dials the extension `1` |
