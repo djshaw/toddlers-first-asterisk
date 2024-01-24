@@ -1,15 +1,20 @@
 # toddlers-first-asterisk
 
 A simple asterisk configuration with a single digit dialplans for a toddler to
-learn how to use an analogue phone
+learn how to use an analogue phone.
 
-<a href="http://www.youtube.com/watch?feature=player_embedded&v=TPnLgXA_lZ4"
-   target="_blank">
-    <img src="http://img.youtube.com/vi/TPnLgXA_lZ4/0.jpg"
-         width="240"
-         height="180"
-         border="10" />
-</a>
+Watch a demo of the phone on youtube:
+
+<p align="center">
+    <a href="https://www.youtube.com/watch?v=TPnLgXA_lZ4"
+       target="_blank">
+        <img src="http://img.youtube.com/vi/TPnLgXA_lZ4/0.jpg"
+             width="240"
+             height="180"
+             border="10" /><br>
+        https://www.youtube.com/watch?v=TPnLgXA_lZ4
+    </a>
+</p>
 
 
 # Building and deploying
