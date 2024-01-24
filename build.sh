@@ -100,28 +100,22 @@ fi
 # them. Get the source files from a place that only I can access.
 mkdir -p sounds/raw
 scp -B cerf@git.djshaw.ca:sounds/* sounds/raw || true
+rm sounds/*.wav
 
-for FILE in $( ls sounds/*.wav ) ; do
+for FILE in $( ls sounds/raw/*.wav ) ; do
     FILE_BASENAME=$( basename $FILE )
-    FILE_BASENAME=${FILE_BASENAME%-}
-    sox $FILE --channels 1 --bits 16 --rate 8000 $FILE_BASENAME
+    if [[ "$FILE_BASENAME" == *"-"* ]] ; then
+        FILE_BASENAME=${FILE_BASENAME%-*}
+    else
+        FILE_BASENAME=${FILE_BASENAME%.*}
+    fi
+    sox $FILE --channels 1 --bits 16 --rate 8000 sounds/${FILE_BASENAME}.wav
 done
 
-# TODO: convert the files to 16bit endian, 8000khz
-# sox chase-s01e02a.wav.old -b 16 -c 1 -r 8000 chase
-
-# You might not be able to download the clips from my server.  In that case,
-# continue on with the installation.
 set +x
 rm -rf /var/lib/asterisk/sounds/en/{.*,*}
 set -x
-cp sounds/*.{wav,gsm}* /var/lib/asterisk/sounds/en/ || true
-
-# TODO: this could be an -exec or an xargs
-for FILE in $( ls sounds/*.mp3 ) ; do
-    # TODO: put the output file name in a variable
-    lame --decode $FILE /var/lib/asterisk/sounds/en/$( basename $FILE ).wav
-done
+cp sounds/*.wav /var/lib/asterisk/sounds/en/ || true
 
 # There are too many files for the -x output to be useful
 set +x

@@ -1,0 +1,11 @@
+digraph G {
+    answer -> intro -> waitForInput;
+    waitForInput -> chase [label="1"];
+    waitForInput -> rocky [label="2"];
+    waitForInput -> marshall [label="3"];
+    waitForInput -> rubble [label="4"];
+    waitForInput -> zuma [label="5"];
+    waitForInput -> sky [label="6"];
+    waitForInput -> waitForInput [label="7,8,9,0,#,*"];
+    { chase, rocky, marshall, rubble, zuma, sky } -> waitForInput;
+}

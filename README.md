@@ -1,16 +1,38 @@
 # toddlers-first-asterisk
+
 A simple asterisk configuration with a single digit dialplans for a toddler to
 learn how to use an analogue phone
+
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=TPnLgXA_lZ4"
+   target="_blank">
+    <img src="http://img.youtube.com/vi/TPnLgXA_lZ4/0.jpg"
+         width="240"
+         height="180"
+         border="10" />
+</a>
+
+
+# Building and deploying
 
 Build with:
 ```
 $ sudo build.sh
 ```
 
-The build script starts asterisk.
+The build script builds, configures, and starts asterisk.
 
-I was unable to get Asterisk to work in a docker container, but it is straight
-forward to get it running in an lxd container.
+This asterisk deployment is meant to run in an lxd container.
+
+# Dialplan
+
+When the phone is picked up, the PAP2 will dial the number `1`.  The dialplan
+will answer when any number is dialed. The Paw Patrol input is played, then
+the dial plan goes into an infinite loop: it waits for input.  If the input is
+in 1 through 6 (inclusive), a pup catch phrase is played, then it goes back to
+waiting for input.  If the input is unexpected, then go back to the waiting for
+input state.
+
+!(doc/dialplan.svg)
 
 
 # PAP2 Configuration
@@ -22,7 +44,7 @@ To configure a Linksys PAP2 to connect to Asterisk:
 | Line 1             | SIP Port  | 5060               | (Default value)             |
 |                    | User ID   | 6001               | `/etc/asterisk/pjsip.conf`: Group name and `6001.username=6001 |
 |                    | Password  | `unsecurepassword` | `/etc/asterisk/pjsip.conf`: `6001.password=unsecurepassword` |
-|                    | Dial Plan | `x`                | Implicitly required based on the content of `/etc/asterisk/extensions.conf` |
+|                    | Proxy     | `asterisk`         | The hostname of the machine running asterisk |
 |                    | Dial Plan | `P0<:1>`           | Auto dials the extension `1` |
 
 
@@ -36,4 +58,10 @@ sudo asterisk -r
 
 # `.wav` Files
 
+Wave files must be mono and sampled at 8Hz.  The wav with a 16 bit sample width
+sounds much better than a wave with an 8 bit sample width.  To take any wave
+and convert it to mono and resample it, execute:
+```
+sox $INPUT --channels 1 --bits 16 --rate 8000 $OUTPUT
+```
 
