@@ -37,7 +37,9 @@ in 1 through 6 (inclusive), a pup catch phrase is played, then it goes back to
 waiting for input.  If the input is unexpected, then go back to the waiting for
 input state.
 
-![dialplan](doc/dialplan.svg)
+<p align="center">
+    ![dialplan](doc/dialplan.svg)
+</p>
 
 
 # PAP2 Configuration
