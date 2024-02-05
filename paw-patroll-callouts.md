@@ -1,14 +1,19 @@
-| Episode                      | Primary Pups | Callout                                   | Approximate Time |
-| -                            | -            | -                                         | - |
-| Pups and the Kitty-tastrophe | Zuma         | Ready set, get wet                        | 3:56 |
-|                              | Sky          | This pup's gotta fly                      | 4:07 |
-| Pups Save A Train            | Rubble       | Let's dig it                              | 4:30 |
-|                              | Rocky        | Green means go                            | 4:36 |
-| Pup Pup Boogie               | Chase        | Chase is on the case                      | 4:53 |
-|                              | Rubble       | Rubble on the double                      | 5:01 |
-| Pups in a Fog                | Zuma         | Let's dive in                             | 4:45 |
-|                              | Chase        | Chase is on the case, Ryder sir           | 4:57 |
-| Pups Save the Sea Turtles    | Chase        | These paws uphold the laws                | 5:04 |
-|                              | Rubble       | Rubble on the double                      | 5:14 |
-| Pup and the Very Big Baby    | Rubble       | Rubble on the double                      | 4:43 |
-|                              | Marshal      | I'm going to get that whale wet, wet, wet | 4:55 |
+| Episode Number | Episode Name                                                                                              | Character    | Callout                                                   | Approximate Time | Filename |
+| -              | -                                                                                                         | -            | -                                                         | -                | - |
+| s01e01-a       | [Pups and the Kitty-tastrophe](https://pawpatrol.fandom.com/wiki/Pups_and_the_Kitty-tastrophe/Transcript) | Zuma         | Ready set, get wet                                        | 3:56             | `zuma-s01e01a.wav` |
+|                |                                                                                                           | Sky          | This pup's gotta fly                                      | 4:07             | `sky-s01e01a.wav` |
+|                |                                                                                                           | Ryder        | All right! PAW Patrol is on a roll!                       | 4:08             | `ryder-s01e01a-signon.wav` |
+|                |                                                                                                           | Ryder        | Thanks, rembmer, whenever you need us, just yelp for help | 11:12            | `ryder-s01e01a-signoff.wav` |
+| s01e01-b       | [Pups Save A Train](https://pawpatrol.fandom.com/wiki/Pups_Save_a_Train/Transcript)                       | Rubble       | Let's dig it                                              | 4:30             | `rubble-s01e01b.wav` |
+|                |                                                                                                           | Rocky        | Green means go                                            | 4:36             | `rocky-s01e01b.wav` |
+| s01e02-a       | [Pup Pup Boogie](https://pawpatrol.fandom.com/wiki/Pup_Pup_Boogie/Transcript)                             | Chase        | Chase is on the case                                      | 4:53             | `chase-s01e02a.wav` |
+|                |                                                                                                           | Rubble       | Rubble on the double                                      | 5:01             | `ruble-s01e02a.wav` |
+| s01e02-b       | [Pups in a Fog](https://pawpatrol.fandom.com/wiki/Pups_in_a_Fog/Transcript)                               | Zuma         | Let's dive in                                             | 4:45             | `zuma-s01e02b.wav` |
+|                |                                                                                                           | Chase        | Chase is on the case, Ryder sir                           | 4:57             | (near duplicate callout) |
+| s01e03-a       | [Pups Save the Sea Turtles](https://pawpatrol.fandom.com/wiki/Pups_Save_the_Sea_Turtles/Transcript)       | Chase        | These paws uphold the laws                                | 5:04             | `chase-s01e03a.wav` |
+|                |                                                                                                           | Rubble       | Rubble on the double                                      | 5:14             | (duplicate callout) |
+| s01e03-b       | [Pups and the Very Big Baby](https://pawpatrol.fandom.com/wiki/Pups_and_the_Very_Big_Baby/Transcript)     | Rubble       | Rubble on the double                                      | 4:43             | (duplicate callout) |
+|                |                                                                                                           | Marshal      | I'm going to get that whale wet, wet, wet                 | 4:55             | `marshall-s01e03b.wav` |
+| s01e04-a       | [Pups Save the Circus](https://pawpatrol.fandom.com/wiki/Pups_Save_the_Circus/Transcript)                 | Case         | Chase is on the case                                      | 4:28             | (duplicate callout) |
+|                |                                                                                                           | Rocky        | Don't lose it, reuse it!                                  | 4:38             | `rocky-s01e04a.wav` |
+|                |                                                                                                           | Ryder        | All right! PAW Patrol is on a roll!                       | 4:40             | (duplicate callout) |

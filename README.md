@@ -26,7 +26,8 @@ $ sudo build.sh
 
 The build script builds, configures, and starts asterisk.
 
-This asterisk deployment is meant to run in an lxd container.
+This asterisk deployment is meant to run on an environment that doesn't support
+docker. It can be developed in an lxd container.
 
 # Dialplan
 

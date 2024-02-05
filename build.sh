@@ -61,6 +61,7 @@ if [[ ! $( asterisk -V ) =~ ${ASTERISK_VERSION}$ ]] ; then
             ./configure
             make -j $( nproc )
             make install
+            # TODO: can we drop `make samples`?
             make samples
             make config
             ldconfig
@@ -102,6 +103,11 @@ mkdir -p sounds/raw
 scp -B cerf@git.djshaw.ca:sounds/* sounds/raw || true
 rm sounds/*.wav
 
+# TODO: The next evolution of this project is to support multiple callouts from the same character.
+#       When multiple callouts from the same character exist, asterisk will randomly select a 
+#       callout to play.  This code removes everything after the `-` character.  We will want to
+#       preserve the full filename and instead modify extensions.conf to dynamically pick a file to
+#       play.
 for FILE in $( ls sounds/raw/*.wav ) ; do
     FILE_BASENAME=$( basename $FILE )
     if [[ "$FILE_BASENAME" == *"-"* ]] ; then
