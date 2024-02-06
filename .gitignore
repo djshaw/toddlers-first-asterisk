@@ -1,3 +1,4 @@
 sounds/*.wav
 sounds/raw/*.wav
 *.swp
+__pycache__
