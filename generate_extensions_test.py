@@ -52,8 +52,35 @@ exten => s,1,Background(intro)
  same =>   n,WaitExten(600)
 
 exten => 1,1,Goto(1,${RAND(1,1)} * 2)
- same =>   n,Background(foo)
+ same =>   n,Background(%(filename)s)
  same =>   n,Goto(s,2)
-""", get_extension_definition( { 'chase': [filename + '.wav'] } ) )
+""" % { 'filename': filename }, get_extension_definition( { 'chase': [filename + '.wav'] } ) )
+
+
+        second_file = 'bar'
+        self.assertEqual( """# This is a generated file, do not edit. Regenerate with generate_extensions.py
+
+[from-internal]
+exten => _X!,1,Answer()
+ same =>     n,Goto(paw-patrol,s,1)
+
+exten => i,1,Goto(1,1)
+
+[paw-patrol]
+exten => i,1,Goto(s,1)
+exten => t,1,Goto(s,1)
+
+exten => s,1,Background(intro)
+ same =>   n,WaitExten(600)
+
+exten => 1,1,Goto(1,${RAND(1,2)} * 2)
+ same =>   n,Background(%(filename)s)
+ same =>   n,Goto(s,2)
+ same =>   n,Background(%(second_filename)s)
+ same =>   n,Goto(s,2)
+""" % { 'filename': filename,
+        'second_filename': second_filename },
+            get_extension_definition( { 'chase': [filename + '.wav',
+                                                  second_filename + '.wav' ] } ) )
 
         # TODO: tests for get_wavs()

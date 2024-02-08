@@ -6,6 +6,7 @@ digraph G {
     waitForInput -> rubble [label="4"];
     waitForInput -> zuma [label="5"];
     waitForInput -> sky [label="6"];
-    waitForInput -> waitForInput [label="7,8,9,0,#,*"];
-    { chase, rocky, marshall, rubble, zuma, sky } -> waitForInput;
+    waitForInput -> ryder [label="7"];
+    waitForInput -> waitForInput [label="8,9,0,#,*"];
+    { chase, rocky, marshall, rubble, zuma, sky, ryder } -> waitForInput;
 }

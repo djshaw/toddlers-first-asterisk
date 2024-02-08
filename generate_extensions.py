@@ -34,7 +34,7 @@ CHARACTER_EXTENSION_MAP = {
 def get_wavs( directory ):
     """ For each .wav file in the provided directory, get the character that speaks the callout,
         and generate a multimap of character name to list of wav files.
-        
+
         Call out wav files are of the form
             $CHARACTER-$UNIQUE_IDENTIFIER.wav
     """
