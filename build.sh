@@ -100,11 +100,11 @@ fi
 # I don't want to host the mp3 files because I don't know I'm allowed to host
 # them. Get the source files from a place that only I can access.
 mkdir -p sounds/raw
-scp -B cerf@git.djshaw.ca:sounds/* sounds/raw || true
+./pull-raw-sounds.sh || true
 rm sounds/*.wav
 
 # TODO: The next evolution of this project is to support multiple callouts from the same character.
-#       When multiple callouts from the same character exist, asterisk will randomly select a 
+#       When multiple callouts from the same character exist, asterisk will randomly select a
 #       callout to play.  This code removes everything after the `-` character.  We will want to
 #       preserve the full filename and instead modify extensions.conf to dynamically pick a file to
 #       play.
