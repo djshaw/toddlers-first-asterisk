@@ -1,0 +1,2 @@
+- [ ] Fix username and password: make them super simple and generic
+- [ ] Integrate `generate_extensions.py` into `build.sh`

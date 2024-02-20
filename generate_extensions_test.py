@@ -57,8 +57,9 @@ exten => 1,1,Goto(1,${RAND(1,1)} * 2)
 """ % { 'filename': filename }, get_extension_definition( { 'chase': [filename + '.wav'] } ) )
 
 
-        second_file = 'bar'
-        self.assertEqual( """# This is a generated file, do not edit. Regenerate with generate_extensions.py
+        second_filename = 'bar'
+        self.assertEqual( \
+"""# This is a generated file, do not edit. Regenerate with generate_extensions.py
 
 [from-internal]
 exten => _X!,1,Answer()
