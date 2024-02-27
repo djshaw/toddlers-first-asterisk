@@ -38,19 +38,13 @@ def get_wavs( directory ):
         Call out wav files are of the form
             $CHARACTER-$UNIQUE_IDENTIFIER.wav
     """
-    sys.stderr.write(directory + "\n")
     wavs = {}
     if not os.path.isdir( directory ):
-        sys.stderr.write("not a directory")
         return wavs
 
     for file in os.listdir( directory ):
         if not file.endswith('wav') or \
            not os.path.isfile( os.path.join( directory, file ) ):
-            if not file.endswith('wav'):
-                sys.stderr.write(f"not a wav: {file}\n")
-            if not os.path.isfile( file ):
-                sys.stderr.write(f"not a file: {file}\n")
             continue
 
         character = file.split('-')[0]
