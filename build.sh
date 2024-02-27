@@ -101,7 +101,7 @@ fi
 # them. Get the source files from a place that only I can access.
 mkdir -p sounds/raw
 ./pull-raw-sounds.sh || true
-rm sounds/*.wav
+rm -f sounds/*.wav
 
 # TODO: The next evolution of this project is to support multiple callouts from the same character.
 #       When multiple callouts from the same character exist, asterisk will randomly select a
@@ -109,14 +109,14 @@ rm sounds/*.wav
 #       preserve the full filename and instead modify extensions.conf to dynamically pick a file to
 #       play.
 for FILE in $( ls sounds/raw/*.wav ) ; do
-    FILE_BASENAME=$( basename $FILE )
-    if [[ "$FILE_BASENAME" == *"-"* ]] ; then
-        FILE_BASENAME=${FILE_BASENAME%-*}
-    else
-        FILE_BASENAME=${FILE_BASENAME%.*}
+    if [[ ! -f $FILE ]] ; then
+        continue
     fi
-    sox $FILE --channels 1 --bits 16 --rate 8000 sounds/${FILE_BASENAME}.wav
+    FILE_BASENAME=$( basename $FILE )
+    sox $FILE --channels 1 --bits 16 --rate 8000 sounds/${FILE_BASENAME}
 done
+
+python generate_extensions.py --source $( realpath $( dirname $0 ) )/sounds > /etc/asterisk/extensions.conf
 
 set +x
 rm -rf /var/lib/asterisk/sounds/en/{.*,*}

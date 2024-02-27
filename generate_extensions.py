@@ -38,12 +38,19 @@ def get_wavs( directory ):
         Call out wav files are of the form
             $CHARACTER-$UNIQUE_IDENTIFIER.wav
     """
+    sys.stderr.write(directory + "\n")
     wavs = {}
     if not os.path.isdir( directory ):
+        sys.stderr.write("not a directory")
         return wavs
 
     for file in os.listdir( directory ):
-        if not file.endswith('wav') or not os.path.isfile( file ):
+        if not file.endswith('wav') or \
+           not os.path.isfile( os.path.join( directory, file ) ):
+            if not file.endswith('wav'):
+                sys.stderr.write(f"not a wav: {file}\n")
+            if not os.path.isfile( file ):
+                sys.stderr.write(f"not a file: {file}\n")
             continue
 
         character = file.split('-')[0]
@@ -77,7 +84,7 @@ def get_extension_definition( wavs: dict[str, set[str]] ) -> str:
         if extension is None:
             continue
         character_block += \
-            "exten => %(extension)d,1,Goto(%(extension)d,${RAND(1,%(callout_count)d)} * 2)\n" % \
+            "exten => %(extension)d,1,Goto(%(extension)d,$[${RAND(1,%(callout_count)d)} * 2])\n" % \
                 {'callout_count': len( callouts ),
                  'extension':     extension}
 
