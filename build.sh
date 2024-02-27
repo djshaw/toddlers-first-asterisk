@@ -83,9 +83,6 @@ chown -R asterisk:asterisk /etc/asterisk \
 # TODO: the credentials 6001/unsecurepassword come from the tutorial I
 #       followed.  Pick better credentials.
 cp etc/asterisk/* /etc/asterisk/
-chmod -R 644 /var/{lib,log,run,spool}/asterisk \
-             /usr/lib/asterisk \
-             /etc/asterisk
 find /var/{lib,log,run,spool}/asterisk \
      /usr/lib/asterisk \
      /etc/asterisk -type d | xargs chmod 755
@@ -103,11 +100,6 @@ mkdir -p sounds/raw
 ./pull-raw-sounds.sh || true
 rm -f sounds/*.wav
 
-# TODO: The next evolution of this project is to support multiple callouts from the same character.
-#       When multiple callouts from the same character exist, asterisk will randomly select a
-#       callout to play.  This code removes everything after the `-` character.  We will want to
-#       preserve the full filename and instead modify extensions.conf to dynamically pick a file to
-#       play.
 for FILE in $( ls sounds/raw/*.wav ) ; do
     if [[ ! -f $FILE ]] ; then
         continue
